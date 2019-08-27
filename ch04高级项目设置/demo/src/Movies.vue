@@ -1,0 +1,26 @@
+<template>
+  <ul class="movies">
+    <Movie v-for="movie in movies" :key="movie.id" :movie="movie" />
+  </ul>
+</template>
+
+<script>
+import Movie from './Movie.vue'
+export default {
+  components: {
+    Movie: Movie,
+  },
+  data () {
+    return {
+      movies: [
+        {id: 0, title: 'Star Wars'},
+        {id: 1, title: 'Blade Runner'},
+      ]
+    }
+  }
+}
+</script>
+
+<style lang="">
+  
+</style>

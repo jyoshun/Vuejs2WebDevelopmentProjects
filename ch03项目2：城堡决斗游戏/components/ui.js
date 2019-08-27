@@ -36,7 +36,9 @@ Vue.component('card', {
 Vue.component('hand', {
   template: `<div class="hand">
     <div class="wrapper">
-      <card v-for="card in cards" :def="card.def" @play="handlePlay(card)" />
+      <transition-group name="card" tag="div" class="cards">
+        <card v-for="card in cards" :def="card.def" @play="handlePlay(card)" :key="card.uid" />
+      </transition-group>
     </div>
   </div>`,
 
