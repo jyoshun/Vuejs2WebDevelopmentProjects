@@ -9,6 +9,7 @@
       <a @click="logout">Logout</a>
     </template>
     <router-link v-else :to="{name: 'login'}">Login</router-link>
+    <router-link :to="{name: 'tickets'}">Support tickets</router-link>
   </nav>
 </template>
 

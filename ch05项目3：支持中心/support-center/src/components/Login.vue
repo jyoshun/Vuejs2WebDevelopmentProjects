@@ -100,7 +100,8 @@ export default {
           password: this.password,
         }),
       })
-      this.$router.push({name: 'home'})
+      // 导航到期望的路由或首页
+      this.$router.replace(this.$route.params.wantedRoute || { name: 'home' })
     },
     async signup () {
       await this.$fetch('signup', {

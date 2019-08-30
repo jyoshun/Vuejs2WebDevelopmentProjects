@@ -40,7 +40,17 @@ export default function (resources) {
     created () {
       for (const key in resources) {
         let url = resources[key]
-        this.fetchResource(key, url)
+        // 如果是一个函数
+        // 侦听它的结果
+        if (typeof url === 'function') {
+          this.$watch(url, (val) => {
+            this.fetchResource(key, val)
+          }, {
+            immediate: true, // 在侦听之前第一次调用 fetchResource
+          })
+        } else {
+          this.fetchResource(key, url)
+        }
       }
     },
   }

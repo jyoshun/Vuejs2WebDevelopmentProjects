@@ -9,8 +9,11 @@
 
     <NavMenu />
 
-    <!-- 菜单将放在这里 -->
-    <router-view />
+    <!-- 过渡 -->
+    <transition name="fade" mode="out-in">
+      <!-- 菜单将放在这里 -->
+      <router-view />
+    </transition>
   </div>
 </template>
 
