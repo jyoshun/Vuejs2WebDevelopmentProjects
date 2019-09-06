@@ -1,0 +1,70 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "Blue Socks",
+      "price": 2.99,
+      "originalPrice": 3.99,
+      "rating": 4.3,
+      "img": "http://localhost:8080/images/1.jpeg"
+    },
+    {
+      "id": 2,
+      "title": "Green Socks",
+      "price": 3.99,
+      "rating": 3.9,
+      "img": "http://localhost:8080/images/2.jpeg"
+    },
+    {
+      "id": 3,
+      "title": "Red Socks",
+      "price": 3.99,
+      "rating": 4,
+      "img": "http://localhost:8080/images/3.jpeg"
+    },
+    {
+      "id": 4,
+      "title": "Blue Shirt",
+      "price": 16.99,
+      "originalPrice": 19.99,
+      "rating": 3.4,
+      "img": "http://localhost:8080/images/4.jpeg"
+    },
+    {
+      "id": 5,
+      "title": "Green Shirt",
+      "price": 19.99,
+      "rating": 4.2,
+      "img": "http://localhost:8080/images/5.jpeg"
+    },
+    {
+      "id": 6,
+      "title": "Red Shirt",
+      "price": 19.99,
+      "rating": 4.1,
+      "img": "http://localhost:8080/images/6.jpeg"
+    },
+    {
+      "id": 7,
+      "title": "Grey Shirt",
+      "price": 6.99,
+      "originalPrice": 19.99,
+      "rating": 2.6,
+      "img": "http://localhost:8080/images/7.jpeg"
+    },
+    {
+      "id": 8,
+      "title": "Black Backpack",
+      "price": 39.99,
+      "rating": 4.7,
+      "img": "http://localhost:8080/images/8.jpeg"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "text": "This is awesome!",
+      "itemId": 1
+    }
+  ]
+}

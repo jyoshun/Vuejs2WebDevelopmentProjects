@@ -1,7 +1,6 @@
 <template>
   <div class="welcome">
     <h1>Welcome</h1>
-
     <div class="actions">
       <button @click="openGoogleSignin">
         Sign in with Google
@@ -27,7 +26,6 @@ export default {
       if (origin !== 'http://localhost:3000') {
         return
       }
-
       if (data === 'success') {
         this.login()
       }

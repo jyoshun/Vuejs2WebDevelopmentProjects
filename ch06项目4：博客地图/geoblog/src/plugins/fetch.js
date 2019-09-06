@@ -1,4 +1,5 @@
 import router from '../router'
+import store from '../store'
 
 let baseUrl
 
@@ -16,7 +17,7 @@ export async function $fetch (url, options) {
   } else if (response.status === 403) {
     // 如果会话不再有效
     // 我们登出
-    // TODO
+    store.dispatch('logout')
   } else {
     const message = await response.text()
     const error = new Error(message)
@@ -27,6 +28,8 @@ export async function $fetch (url, options) {
 
 export default {
   install (Vue, options) {
+    console.log('Installed!', options)
+    
     // 插件选项
     baseUrl = options.baseUrl
 
