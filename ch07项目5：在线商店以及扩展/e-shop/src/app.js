@@ -23,11 +23,10 @@ export async function createApp (context) {
   const i18n = await createI18n(context.locale)
   await store.dispatch('init')
 
-  // eslint-disable-next-line no-new
   const app = new Vue({
     router,
     store,
-    i18n, // 将i18n注入应用
+    i18n,
     ...App,
   })
 

@@ -1,7 +1,13 @@
 import VueI18n from 'vue-i18n'
 import langs from '../../i18n'
 
-// 创建并加载i18n
+/**
+ * Creates and loads a localization.
+ *
+ * @export
+ * @param {string} locale
+ * @returns A promise with the instance of VueI18n
+ */
 export async function createI18n (locale) {
   const { default: localeMessages } = await import(`../../i18n/locales/${locale}`)
   const messages = {
@@ -16,8 +22,14 @@ export async function createI18n (locale) {
   return i18n
 }
 
-// 自动加载用户区域设置
+/**
+ * Detects the lang used by the user.
+ *
+ * @export
+ * @returns The lang if present in the available locales, or 'en' if not.
+ */
 export function getAutoLang () {
+  // IE: `window.navigator.userLanguage`
   let result = window.navigator.userLanguage || window.navigator.language
   if (result) {
     result = result.substr(0, 2)

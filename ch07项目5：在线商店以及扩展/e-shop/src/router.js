@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import PageLocale from './components/PageLocale.vue'
 
 import PageHome from './components/PageHome.vue'
 import PageStoreItem from './components/PageStoreItem.vue'
 import PageCheckout from './components/PageCheckout.vue'
+import PageLocale from './components/PageLocale.vue'
 import PageNotFound from './components/PageNotFound.vue'
 
 Vue.use(VueRouter)

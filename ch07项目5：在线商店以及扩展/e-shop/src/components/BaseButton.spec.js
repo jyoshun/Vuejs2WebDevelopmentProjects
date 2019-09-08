@@ -9,16 +9,27 @@ describe('BaseButton', () => {
     expect(wrapper.emitted().click).toBeTruthy()
   })
 
+  test('icon prop', () => {
+    const wrapper = shallow(BaseButton, {
+      propsData: {
+        icon: 'add',
+      },
+    })
+    expect(wrapper.contains('.icon')).toBe(true)
+    const icon = wrapper.find('.icon')
+    expect(icon.text()).toBe('add')
+  })
+
   test('snapshot', () => {
     const renderer = createRenderer()
     const wrapper = shallow(BaseButton, {
-      // prop值
+      // Props values
       propsData: {
         icon: 'add',
         disabled: true,
-        badge: 3,
+        badge: '3',
       },
-      // 插槽内容
+      // Slots content
       slots: {
         default: '<span>Add Item</span>',
       },

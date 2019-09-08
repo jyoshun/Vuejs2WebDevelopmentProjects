@@ -10,14 +10,14 @@ module.exports = merge(common, {
   output: {
     libraryTarget: 'commonjs2',
   },
-  // 对node_modules跳过Webpack处理
+  // Skip webpack processing on node_modules
   externals: nodeExternals({
-    // 从node_modules中强行引入CSS文件
-    // 等待Webpack处理
+    // Force css files imported from no_modules
+    // to be processed by webpack
     whitelist: /\.css$/,
   }),
   plugins: [
-    // 生成服务器bundles文件
+    // Generates the server bundle file
     new VueSSRServerPlugin(),
   ],
 })
