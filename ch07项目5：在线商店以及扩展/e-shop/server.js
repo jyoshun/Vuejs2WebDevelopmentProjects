@@ -24,7 +24,18 @@ let readyPromise
 if (isProd) {
   // TODO production
 } else {
-  // TODO development
+  const setupDevServer = require('./server.dev')
+  readyPromise = setupDevServer({
+    server,
+    templatePath,
+    onUpdate: (bundle, options) => {
+      // 重新创建bundle渲染器
+      renderer = createBundleRenderer(bundle, {
+        runInNewContext: false,
+        ...options,
+      }).catch(() => {})
+    },
+  }).catch(() => {})
 }
 
 // Serve static files
@@ -37,7 +48,20 @@ server.use('/dist', serve('./dist', true))
 
 // Render the Vue app using the bundle renderer
 function renderApp (req, res) {
-  // TODO render
+  const context = {
+    url: req.url,
+    // 浏览器发送的语言列表
+    locale: req.acceptsLanguages(langs) || 'en',
+  }
+  renderer.renderToString(context, (err, html) => {
+    if (err) {
+      // 渲染错误页面或重定向
+      res.status(500).send('500 | Internal Server Error')
+      console.error(`error during render : ${req.url}`)
+      console.error(err.stack)
+    }
+    res.send(html)
+  })
 }
 
 // Process SSR requests
@@ -48,7 +72,7 @@ if (isProd) {
   // In development: wait for webpack compilation
   // when receiving a SSR request
   ssr = (req, res) => {
-    readyPromise.then(() => renderApp(req, res))
+    readyPromise.then(() => renderApp(req, res)).catch(() => {})
   }
 }
 server.get('*', ssr)

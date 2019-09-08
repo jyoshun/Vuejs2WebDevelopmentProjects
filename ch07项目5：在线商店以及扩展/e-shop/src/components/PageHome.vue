@@ -42,6 +42,10 @@ export default {
     ...mapActions('items', [
       'fetchItems',
     ]),
+
+    asyncData ({ store }) {
+      return store.dispatch('items/fetchItems')
+    },
   },
 
   mounted () {
