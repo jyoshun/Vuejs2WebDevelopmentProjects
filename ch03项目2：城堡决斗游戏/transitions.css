@@ -1,3 +1,26 @@
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+  transition: opacity .3s, transform .3s;
+}
+
+.zoom-enter,
+.zoom-leave-to {
+  opacity: 0;
+  transform: scale(.7);
+}
+
+/* Hand */
+
 .hand-enter-active,
 .hand-leave-active {
   transition: opacity .5s;
@@ -10,7 +33,7 @@
 
 .hand-enter-active .wrapper,
 .hand-leave-active .wrapper {
-  transition: transform .8s cubic-bezier(.08, 074, .34, 1);
+  transition: transform .8s cubic-bezier(.08,.74,.34,1);
   transform-origin: bottom center;
 }
 
@@ -21,7 +44,7 @@
 
 .hand-enter-active .card,
 .hand-leave-active .card {
-  transition: margin .8s cubic-bezier(.08, .74, .34, 1);
+  transition: margin .8s cubic-bezier(.08,.74,.34,1);
 }
 
 .hand-enter .card,
@@ -29,34 +52,32 @@
   margin: 0 -100px;
 }
 
-.card {
-  /* 用于进入、移动和鼠标悬停的动画 */
-  transition: all .3s;
-}
+/* Card */
 
-.card-move {
-  transition: transform .3s;
+.card {
+  /* Used for enter, move and mouse over animations */
+  transition: all .3s;
 }
 
 .card-enter {
   opacity: 0;
-  /* 从右边划入 */
+  /* Slide from the right */
   transform: scale(.8) translateX(100px);
 }
 
 .card-leave-active {
-  /* 离开过渡的时间不同 */
+  /* We need different timings for the leave transition */
   transition: all 1s, opacity .5s .5s;
-  /* 保持水平位置不变 */
+  /* Keep it in the same horizontal position */
   position: absolute !important;
-  /* 将玩家打出的卡牌绘制于其他卡牌之上 */
+  /* Make it painted over the other cards */
   z-index: 10;
-  /* 在过渡期间不允许单击 */
+  /* Unclickable during the transition */
   pointer-events: none;
 }
 
 .card-leave-to {
   opacity: 0;
-  /* 卡牌上升的同时放大 */
+  /* Zoom the card upwards */
   transform: translateX(-106px) translateY(-300px) scale(1.5);
 }
